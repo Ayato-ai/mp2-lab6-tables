@@ -1,6 +1,6 @@
-// ННГУ, ИИТММ, Курс "Алгоритмы и структуры данных"
+// UNN, IITMM, Course "Algorithms and Data Structures"
 // 
-// Носков И.А.
+// Noskov I.A.
 
 #pragma once
 #include <list>
