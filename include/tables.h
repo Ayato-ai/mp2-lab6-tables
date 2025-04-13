@@ -36,6 +36,7 @@ namespace maps {
 		};
 		void clear() {
 			sz = 0;
+			data.clear();
 		};
 		bool is_empty() {
 			return (sz == 0);
@@ -52,7 +53,7 @@ namespace maps {
 		UnorderedTable() {
 			sz = 0;
 		}
-		UnorderedTable(std::vector<CellType> v) {
+		UnorderedTable(const std::vector<CellType>& v) {
 			data = v;
 			sz = v.size();
 		}
@@ -66,7 +67,8 @@ namespace maps {
 					if (data[i].first == key)
 						return &data[i];
 				}
-				throw std::runtime_error("key_not_founded");
+				return nullptr;
+				//throw std::runtime_error("key_not_founded");
 			}
 			/*catch (const std::runtime_error& e) {
 				std::cout << e.what() << std::endl;
@@ -113,7 +115,7 @@ namespace maps {
 		OrderedTable() {
 			sz = 0;
 		}
-		OrderedTable(std::vector<CellType> v) {
+		OrderedTable(const std::vector<CellType>& v) {
 			data = v;
 			sz = v.size();
 		}
@@ -132,7 +134,8 @@ namespace maps {
 
 				if (iterator != data.end())
 					return &(*iterator);
-				throw std::runtime_error("key_not_founded");
+				return nullptr;
+				//throw std::runtime_error("key_not_founded");
 			}
 			/*
 			catch (const std::runtime_error& e) {
@@ -206,7 +209,7 @@ namespace maps {
 			return table_size;
 		};
 		void clear() {
-			for (std::size_t i = 0; i < M; i++)
+			for (std::size_t i = 0; i < data.size(); i++)
 				if (!data[i].empty())
 					data[i].clear();
 		};
@@ -224,7 +227,8 @@ namespace maps {
 					if (iterator->first == key)
 						return &(*iterator);
 
-				throw std::runtime_error("key_not_founded");
+				return nullptr;
+				//throw std::runtime_error("key_not_founded");
 			}
 			/*catch (const std::runtime_error& e) {
 				std::cout << e.what() << std::endl;

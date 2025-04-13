@@ -33,7 +33,7 @@ TYPED_TEST_P(Hash_Table_Test, find_hash_table) {
 TYPED_TEST_P(Hash_Table_Test, throw_find_hash_table) {
 	this->SetUp();
 	(*this->table).insert(10, "Brooklyn");
-	ASSERT_ANY_THROW((*this->table).find(12));
+	EXPECT_EQ((*this->table).find(12), nullptr);
 };
 TYPED_TEST_P(Hash_Table_Test, throw_insert_hash_table) {
 	this->SetUp();
